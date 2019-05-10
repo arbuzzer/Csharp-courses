@@ -1,2 +1,2 @@
-# C--courses
+# C#-courses
 Repository for C# courses
