@@ -1,2 +1,2 @@
-# C# ourses
+# C# courses
 Repository for C# courses
