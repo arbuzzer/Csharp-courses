@@ -7,33 +7,33 @@ namespace Lab1
 {
     public abstract class Screen
     {
-        public string ScreenSize { get; set; }
-        public string ScreenResolution { get; set; }
+        public string ScreenSize { get; }
+        public string ScreenResolution { get; }
         public Screen()
         {
             ScreenSize = "4.7\"";
             ScreenResolution = "1334x750(pixels)";
         }
-        public abstract string GetDescription();
+        public abstract string ToString();
     }
     public abstract class TouchScreen : Screen
     {
-        public override string GetDescription() {
+        public override string ToString() {
             return $" touch screen which has screen diagonal {ScreenSize} with resolution {ScreenResolution}. ";
         }
     }
     public class SingleTouchScreen : TouchScreen
     {
-        public override string GetDescription()
+        public override string ToString()
         {
-            return "Single" + base.GetDescription();
+            return "Single" + base.ToString();
         }
     }
     public class MultiTouchScreen : TouchScreen
     {
-        public override string GetDescription()
+        public override string ToString()
         {
-            return "Multi" + base.GetDescription();
+            return "Multi" + base.ToString();
         }
     }
 }
