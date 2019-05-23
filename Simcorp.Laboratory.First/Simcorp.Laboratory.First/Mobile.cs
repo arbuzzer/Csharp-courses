@@ -1,16 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Lab1
+namespace Simcorp.Laboratory.First
 {
     public abstract class Mobile
     {
-        public abstract Screen Screen { get; }
-        public abstract Battery Battery { get; }
-        public abstract Camera Camera { get; }
-        public abstract Speaker Speaker { get; }
-        public string MobileDescription() {
+        private Screen Screen { get; }
+        private Battery Battery { get; }
+        private Camera Camera { get; }
+        private Speaker Speaker { get; }
+
+        public Mobile(Screen screen, Battery battery, Camera camera, Speaker speaker)
+        {
+            Screen = screen;
+            Battery = battery;
+            Camera = camera;
+            Speaker = speaker;
+        }
+
+        public string ToString()
+        {
             var descriptionBuilder = new StringBuilder();
             descriptionBuilder.AppendLine($"Screen type: {Screen.ToString()}");
             descriptionBuilder.AppendLine($"Battery type: {Battery.ToString()}");

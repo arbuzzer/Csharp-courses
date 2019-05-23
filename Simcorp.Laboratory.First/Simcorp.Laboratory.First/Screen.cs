@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Lab1
+namespace Simcorp.Laboratory.First
 {
     public abstract class Screen
     {
@@ -18,7 +19,8 @@ namespace Lab1
     }
     public abstract class TouchScreen : Screen
     {
-        public override string ToString() {
+        public override string ToString()
+        {
             return $" touch screen which has screen diagonal {ScreenSize} with resolution {ScreenResolution}. ";
         }
     }
