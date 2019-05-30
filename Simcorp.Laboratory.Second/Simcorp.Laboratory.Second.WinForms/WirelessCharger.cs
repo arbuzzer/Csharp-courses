@@ -15,7 +15,7 @@ namespace Simcorp.Laboratory.Second.WinForms
         }
 
         public void Charge() {
-            Output.Write($"Using {nameof(WirelessCharger)} charger");
+            Output.Write($"Uses {nameof(WirelessCharger)} for charging");
         }
     }
 }

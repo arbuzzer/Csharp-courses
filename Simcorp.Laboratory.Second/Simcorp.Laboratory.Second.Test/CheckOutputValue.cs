@@ -25,11 +25,11 @@ namespace Simcorp.Laboratory.Second.Test
             var output = new TestableOutput();
             iPhoneHeadset iphoneHeadset = new iPhoneHeadset(output);
 
-            string inputValue = $"Madonna Song";
+            string inputValue = "Madonna Song";
             iphoneHeadset.Play(inputValue);
 
             string outputValue = output.WritenLineText;
-            string expectedValue = $"{nameof(iPhoneHeadset)} soud {inputValue}";
+            string expectedValue = $"{nameof(iPhoneHeadset)} play {inputValue}";
 
             Assert.AreEqual(expectedValue, outputValue);
         }
@@ -38,11 +38,11 @@ namespace Simcorp.Laboratory.Second.Test
             var output = new TestableOutput();
             SamsungHeadset samsungHeadset = new SamsungHeadset(output);
 
-            string inputValue = $"{nameof(SamsungHeadset)} sound";
+            string inputValue = "Madonna Song";
             samsungHeadset.Play(inputValue);
 
             string outputValue = output.WritenLineText;
-            string expectedValue = $"{nameof(SamsungHeadset)} sound {inputValue}";
+            string expectedValue = $"{nameof(SamsungHeadset)} play {inputValue}";
 
             Assert.AreEqual(expectedValue, outputValue);
         }
@@ -51,11 +51,11 @@ namespace Simcorp.Laboratory.Second.Test
             var output = new TestableOutput();
             UnofficialiPhoneHeadset unofficialiPhoneHeadset = new UnofficialiPhoneHeadset(output);
 
-            string inputValue = $"{nameof(UnofficialiPhoneHeadset)} sound";
+            string inputValue = $"Madonna Song";
             unofficialiPhoneHeadset.Play(inputValue);
 
             string outputValue = output.WritenLineText;
-            string expectedValue = $"{nameof(UnofficialiPhoneHeadset)} sound {inputValue}";
+            string expectedValue = $"{nameof(UnofficialiPhoneHeadset)} play {inputValue}";
 
             Assert.AreEqual(expectedValue, outputValue);
         }
@@ -64,11 +64,11 @@ namespace Simcorp.Laboratory.Second.Test
             var output = new TestableOutput();
             PhoneSpeaker phoneSpeaker = new PhoneSpeaker(output);
 
-            string inputValue = $"{nameof(PhoneSpeaker)} sound";
+            string inputValue = "Madonna Song";
             phoneSpeaker.Play(inputValue);
 
             string outputValue = output.WritenLineText;
-            string expectedValue = $"{nameof(PhoneSpeaker)} sound {inputValue}";
+            string expectedValue = $"{nameof(PhoneSpeaker)} play {inputValue}";
 
             Assert.AreEqual(expectedValue, outputValue);
         }

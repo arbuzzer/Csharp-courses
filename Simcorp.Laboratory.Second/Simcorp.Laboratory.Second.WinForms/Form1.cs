@@ -32,17 +32,18 @@ namespace Simcorp.Laboratory.Second.WinForms
         private void RadioButton_CheckedChanged(object sender, EventArgs e) {
             Type typeOfCharger = (Type)((Control)sender).Tag;
             Charger = (ICharger)Activator.CreateInstance(typeOfCharger, Output);
+            //ChargeTextBox.Text = $"{typeOfCharger.Name} selected";
         }
 
-        private void Button1_Click(object sender, EventArgs e) {
-            if(Charger != null)
+        private void ChooseChargerButton_Click(object sender, EventArgs e) {
+            if(Charger == null)
             {
-                ChargeTextBox.Text = $"{Charger.GetType().Name} selected";
-                Charger.Charge();
+                MessageBox.Show("Please choose one of the option", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
-                MessageBox.Show("Please choose one of the option", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                ChargeTextBox.Text = $"{Charger.GetType().Name} selected\r\n";
+                Charger.Charge();
             }
         }
     }

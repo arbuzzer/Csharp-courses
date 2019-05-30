@@ -25,7 +25,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.button1 = new System.Windows.Forms.Button();
+            this.ChooseChargerButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ChargeTextBox = new System.Windows.Forms.TextBox();
             this.WirelessRadioButton = new System.Windows.Forms.RadioButton();
@@ -34,16 +34,16 @@
             this.MicroUsbRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
-            // button1
+            // ChooseChargerButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(72, 275);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.ChooseChargerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChooseChargerButton.Location = new System.Drawing.Point(72, 275);
+            this.ChooseChargerButton.Name = "ChooseChargerButton";
+            this.ChooseChargerButton.Size = new System.Drawing.Size(124, 32);
+            this.ChooseChargerButton.TabIndex = 0;
+            this.ChooseChargerButton.Text = "Apply";
+            this.ChooseChargerButton.UseVisualStyleBackColor = true;
+            this.ChooseChargerButton.Click += new System.EventHandler(this.ChooseChargerButton_Click);
             // 
             // label1
             // 
@@ -133,7 +133,7 @@
             this.Controls.Add(this.UsbTypeCRadioButton);
             this.Controls.Add(this.MicroUsbRadioButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ChooseChargerButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -145,7 +145,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ChooseChargerButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton MicroUsbRadioButton;
         private System.Windows.Forms.RadioButton UsbTypeCRadioButton;

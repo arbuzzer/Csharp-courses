@@ -14,7 +14,9 @@ namespace Simcorp.Laboratory.Second.WinForms
             TextBox = textBox;
         }
         public void Write(string text) {
-            TextBox.Text = text;
+            TextBox.Text += "Set charger to Mobile...\r\n" +
+                "Start charging the Mobile:\r\n" + 
+                text;
         }
     }
 }

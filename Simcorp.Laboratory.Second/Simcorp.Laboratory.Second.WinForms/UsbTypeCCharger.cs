@@ -15,10 +15,7 @@ namespace Simcorp.Laboratory.Second.WinForms
         }
 
         public void Charge() {
-            Output.Write($"{nameof(UsbTypeCCharger)} charger selected\r\n" +
-                "Set charger to Mobile...\r\n" +
-                "Start charging the Mobile:\r\n" +
-                $"Using {nameof(UsbTypeCCharger)} charger");
+            Output.Write($"Uses {nameof(UsbTypeCCharger)} charger");
         }
     }
 }
