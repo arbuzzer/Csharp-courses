@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Simcorp.Laboratory.Library;
 
 namespace Simcorp.Laboratory.Second
 {
@@ -56,7 +57,8 @@ namespace Simcorp.Laboratory.Second
             Console.WriteLine($"Set payback to Mobile...");
             Console.WriteLine($"Play sound in Mobile:");
 
-            SimcorpMobile simcorpMobile = new SimcorpMobile(playbacks[choiseHeadset]);
+            SimcorpMobile simcorpMobile = new SimcorpMobile(new MultiTouchScreen(), new LithiumIon(), new SingleModule(), new Stereo());
+            simcorpMobile.SimcorpMobilePlayback(playbacks[choiseHeadset]);
             simcorpMobile.Play("Song");
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Simcorp.Laboratory.Library;
 
 namespace Simcorp.Laboratory.Second.WinForms
 {
@@ -15,7 +16,7 @@ namespace Simcorp.Laboratory.Second.WinForms
         }
 
         public void Charge() {
-            Output.Write($"Uses {nameof(WirelessCharger)} for charging");
+            Output.WriteLine($"Uses {nameof(WirelessCharger)} for charging");
         }
     }
 }

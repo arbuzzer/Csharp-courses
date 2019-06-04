@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Simcorp.Laboratory.Library">
+      <HintPath>..\..\..\..\..\source\repos\Simcorp.Laboratory.Library\Simcorp.Laboratory.Library\bin\Debug\Simcorp.Laboratory.Library.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,15 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleOutput.cs" />
-    <Compile Include="IOutput.cs" />
     <Compile Include="iPhoneHeadset.cs" />
-    <Compile Include="IPlayback.cs" />
-    <Compile Include="Mobile.cs" />
     <Compile Include="PhoneSpeaker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SamsungHeadset.cs" />
-    <Compile Include="SimcorpMobile.cs" />
     <Compile Include="UnofficialiPhoneHeadset.cs" />
   </ItemGroup>
   <ItemGroup>
