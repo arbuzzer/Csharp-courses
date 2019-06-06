@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simcorp.Laboratory.Second.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simcorp.Laboratory.Second.WinForms", "Simcorp.Laboratory.Second.WinForms\Simcorp.Laboratory.Second.WinForms.csproj", "{2C2CCAF0-7336-488E-9AF9-2A3C97F6628A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simcorp.Laboratory.Library", "Simcorp.Laboratory.Library\Simcorp.Laboratory.Library.csproj", "{ACA44912-5B9A-43ED-B9A0-387593615AEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{2C2CCAF0-7336-488E-9AF9-2A3C97F6628A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C2CCAF0-7336-488E-9AF9-2A3C97F6628A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C2CCAF0-7336-488E-9AF9-2A3C97F6628A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA44912-5B9A-43ED-B9A0-387593615AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA44912-5B9A-43ED-B9A0-387593615AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA44912-5B9A-43ED-B9A0-387593615AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA44912-5B9A-43ED-B9A0-387593615AEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BA4D47D7-9241-4D2E-B44A-D89221530A74}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Simcorp.Laboratory.Second</RootNamespace>
-    <AssemblyName>Simcorp.Laboratory.Second</AssemblyName>
+    <ProjectGuid>{46D9494F-B196-4042-8FFF-0A4960E054E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Simcorp.Laboratory.Library</RootNamespace>
+    <AssemblyName>Simcorp.Laboratory.Library</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,18 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleOutput.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Battery.cs" />
+    <Compile Include="Camera.cs" />
+    <Compile Include="ICharger.cs" />
+    <Compile Include="IOutput.cs" />
+    <Compile Include="iPhoneHeadset.cs" />
+    <Compile Include="IPlayback.cs" />
+    <Compile Include="LightningCharger.cs" />
+    <Compile Include="MicroUsbCharger.cs" />
+    <Compile Include="Mobile.cs" />
+    <Compile Include="PhoneSpeaker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Simcorp.Laboratory.Library\Simcorp.Laboratory.Library.csproj">
-      <Project>{46d9494f-b196-4042-8fff-0a4960e054e7}</Project>
-      <Name>Simcorp.Laboratory.Library</Name>
-    </ProjectReference>
+    <Compile Include="SamsungHeadset.cs" />
+    <Compile Include="Screen.cs" />
+    <Compile Include="SimcorpMobile.cs" />
+    <Compile Include="Speaker.cs" />
+    <Compile Include="UnofficialiPhoneHeadset.cs" />
+    <Compile Include="UsbTypeCCharger.cs" />
+    <Compile Include="WirelessCharger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

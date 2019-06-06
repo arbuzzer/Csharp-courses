@@ -75,7 +75,7 @@
             this.WirelessRadioButton.Size = new System.Drawing.Size(145, 24);
             this.WirelessRadioButton.TabIndex = 5;
             this.WirelessRadioButton.TabStop = true;
-            this.WirelessRadioButton.Tag = typeof(Simcorp.Laboratory.Second.WinForms.WirelessCharger);
+            this.WirelessRadioButton.Tag = typeof(Simcorp.Laboratory.Library.WirelessCharger);
             this.WirelessRadioButton.Text = "Wireless charger";
             this.WirelessRadioButton.UseVisualStyleBackColor = true;
             this.WirelessRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
@@ -89,7 +89,7 @@
             this.LightningRadioButton.Size = new System.Drawing.Size(150, 24);
             this.LightningRadioButton.TabIndex = 4;
             this.LightningRadioButton.TabStop = true;
-            this.LightningRadioButton.Tag = typeof(Simcorp.Laboratory.Second.WinForms.LightningCharger);
+            this.LightningRadioButton.Tag = typeof(Simcorp.Laboratory.Library.LightningCharger);
             this.LightningRadioButton.Text = "Lightning charger";
             this.LightningRadioButton.UseVisualStyleBackColor = true;
             this.LightningRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
@@ -103,7 +103,7 @@
             this.UsbTypeCRadioButton.Size = new System.Drawing.Size(173, 24);
             this.UsbTypeCRadioButton.TabIndex = 3;
             this.UsbTypeCRadioButton.TabStop = true;
-            this.UsbTypeCRadioButton.Tag = typeof(Simcorp.Laboratory.Second.WinForms.UsbTypeCCharger);
+            this.UsbTypeCRadioButton.Tag = typeof(Simcorp.Laboratory.Library.UsbTypeCCharger);
             this.UsbTypeCRadioButton.Text = "USB Type-C charger";
             this.UsbTypeCRadioButton.UseVisualStyleBackColor = true;
             this.UsbTypeCRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
@@ -117,7 +117,7 @@
             this.MicroUsbRadioButton.Size = new System.Drawing.Size(161, 24);
             this.MicroUsbRadioButton.TabIndex = 2;
             this.MicroUsbRadioButton.TabStop = true;
-            this.MicroUsbRadioButton.Tag = typeof(Simcorp.Laboratory.Second.WinForms.MicroUsbCharger);
+            this.MicroUsbRadioButton.Tag = typeof(Simcorp.Laboratory.Library.MicroUsbCharger);
             this.MicroUsbRadioButton.Text = "Micro USB charger";
             this.MicroUsbRadioButton.UseVisualStyleBackColor = true;
             this.MicroUsbRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);

@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simcorp.Laboratory.Second\Simcorp.Laboratory.Second.csproj">
-      <Project>{ba4d47d7-9241-4d2e-b44a-d89221530a74}</Project>
-      <Name>Simcorp.Laboratory.Second</Name>
+    <ProjectReference Include="..\Simcorp.Laboratory.Library\Simcorp.Laboratory.Library.csproj">
+      <Project>{46d9494f-b196-4042-8fff-0a4960e054e7}</Project>
+      <Name>Simcorp.Laboratory.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

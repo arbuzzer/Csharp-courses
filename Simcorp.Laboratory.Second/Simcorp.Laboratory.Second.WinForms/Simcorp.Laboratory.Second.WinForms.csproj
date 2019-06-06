@@ -36,9 +36,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Simcorp.Laboratory.Library">
-      <HintPath>..\..\..\..\..\source\repos\Simcorp.Laboratory.Library\Simcorp.Laboratory.Library\bin\Debug\Simcorp.Laboratory.Library.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,13 +55,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="LightningCharger.cs" />
-    <Compile Include="MicroUsbCharger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsbTypeCCharger.cs" />
     <Compile Include="WinFormsOutput.cs" />
-    <Compile Include="WirelessCharger.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Simcorp.Laboratory.Library\Simcorp.Laboratory.Library.csproj">
+      <Project>{46d9494f-b196-4042-8fff-0a4960e054e7}</Project>
+      <Name>Simcorp.Laboratory.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

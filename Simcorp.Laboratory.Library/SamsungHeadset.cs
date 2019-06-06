@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Simcorp.Laboratory.Library;
 
-namespace Simcorp.Laboratory.Second
+namespace Simcorp.Laboratory.Library
 {
-    public class iPhoneHeadset : IPlayback
+    public class SamsungHeadset : IPlayback
     {
         private IOutput Output;
 
-        public iPhoneHeadset(IOutput output) {
+        public SamsungHeadset(IOutput output) {
             Output = output;
         }
 
         public void Play(object data) {
-            Output.WriteLine($"{nameof(iPhoneHeadset)} sound {data}");
+            Output.WriteLine($"{nameof(SamsungHeadset)} play {data}");
         }
     }
 }

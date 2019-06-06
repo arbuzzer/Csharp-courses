@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Simcorp.Laboratory.Library;
 
-namespace Simcorp.Laboratory.Second.WinForms
+namespace Simcorp.Laboratory.Library
 {
-    public class WirelessCharger : ICharger
+    public class UsbTypeCCharger : ICharger
     {
         private IOutput Output;
 
-        public WirelessCharger(IOutput output) {
+        public UsbTypeCCharger(IOutput output) {
             Output = output;
         }
 
         public void Charge() {
-            Output.WriteLine($"Uses {nameof(WirelessCharger)} for charging");
+            Output.WriteLine($"Uses {nameof(UsbTypeCCharger)} charger");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Simcorp.Laboratory.Library;
 
 namespace Simcorp.Laboratory.Second.Test
 {
