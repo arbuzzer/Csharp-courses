@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Simcorp.Laboratory.Third.MobileChargers;
 using Simcorp.Laboratory.Third.MobileFeatures;
 using Simcorp.Laboratory.Third.MobileSpeakers;
@@ -11,16 +8,35 @@ namespace Simcorp.Laboratory.Third
 {
     public abstract class Mobile
     {
-        private Screen Screen { get; }
-        private Battery Battery { get; }
-        private Camera Camera { get; }
-        private Speaker Speaker { get; }
+        public Screen Screen { get; }
 
-        public Mobile(Screen screen, Battery battery, Camera camera, Speaker speaker) {
+        public Battery Battery { get; }
+
+        public Camera Camera { get; }
+
+        public Speaker Speaker { get; }
+
+        public SMSProvider SMSProvider { get; }
+
+        public ICharger ChargerComponent { get; set; }
+
+        public IPlayback PlaybackComponent { get; set; }
+ 
+        public Action<string> SMSReceivedDelegate { get; internal set; }
+
+        public Mobile(Screen screen, Battery battery, Camera camera, Speaker speaker, SMSProvider smsProvider) {
             Screen = screen;
             Battery = battery;
             Camera = camera;
             Speaker = speaker;
+            SMSProvider = smsProvider;
+
+            SMSProvider.SMSReceived += OnSMSReceived;
+        }
+
+        private void OnSMSReceived(string message) {
+            if (SMSReceivedDelegate == null) { return; }
+            SMSReceivedDelegate(message);
         }
 
         public string ToString() {
@@ -32,16 +48,12 @@ namespace Simcorp.Laboratory.Third
             return descriptionBuilder.ToString();
         }
 
-        public ICharger ChargerComponent { get; set; }
         public void Charge() {
             ChargerComponent.Charge();
         }
 
-        public IPlayback PlaybackComponent { get; set; }
         public void Play(object data) {
             PlaybackComponent.Play(data);
         }
-
-        public SMSProvider SMSProvider { get; set; }
     }
 }

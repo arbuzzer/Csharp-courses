@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using Simcorp.Laboratory.Third.MobileFeatures;
 
 namespace Simcorp.Laboratory.Third
 {
@@ -8,31 +9,35 @@ namespace Simcorp.Laboratory.Third
     {
         private delegate string FormatDelegate(string text);
 
+        private Func<string, string> TextFormatter;
+
         public Form1() {
             InitializeComponent();
-            MessageComboBox.SelectedItem = "Start with DateTime";
+            MessageComboBox.SelectedItem = "None";
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            SMSProvider SMSProvider = new SMSProvider();
-
-            SMSProvider.SMSReceived += OnSMSReceived;
-
-            int number = 1;
-            var autoEvent = new AutoResetEvent(false);
-            var startMessage = new System.Threading.Timer(state => SMSProvider.RaiseSMSReceivedEvent($"Message #{number++} Received!"),
-                                   autoEvent, 0, 1500);
+            SimcorpMobile simcorpMobile = new SimcorpMobile(new MultiTouchScreen(), new LithiumIon(), new SingleModule(), new Stereo(), new SMSProvider());
+            simcorpMobile.SMSReceivedDelegate = OnSMSReceived;
+            MessageComboBox.SelectionChangeCommitted += OnSelected;
         }
 
-        private static string FormatStartWithTime(string message) {
-            return $"[{DateTime.Now}] {message}";
+        private void OnSelected(object sender, EventArgs e) {
+            switch (MessageComboBox.SelectedItem) {
+                case "Start with DateTime":
+                TextFormatter = (message) => $"[{DateTime.Now}] {message}{Environment.NewLine}";
+                break;
+                case "End with DateTime":
+                TextFormatter = (message) => $"{message} [{DateTime.Now}]{Environment.NewLine}";
+                break;
+                case "Uppercase":
+                TextFormatter = (message) => $"[{DateTime.Now}] {message.ToUpper()}{Environment.NewLine}";
+                break;
+                case "Lowercase":
+                TextFormatter = (message) => $"[{DateTime.Now}] {message.ToLower()}{Environment.NewLine}";
+                break;
+            }
         }
-        private static string FormatEndWithTime(string message) {
-            return $"{message}";
-        }
-
-        private readonly FormatDelegate FormatterStart = new FormatDelegate(FormatStartWithTime);
-        private readonly FormatDelegate FormatterEnd = new FormatDelegate(FormatEndWithTime);
 
         private void OnSMSReceived(string message) {
             if (InvokeRequired) {
@@ -40,24 +45,9 @@ namespace Simcorp.Laboratory.Third
                 return;
             }
 
-            switch (MessageComboBox.SelectedItem) {
-                case "Start with DateTime":
-                    string formattedStartMessage = FormatterStart($"{message}{Environment.NewLine}");
-                    MessageRichTextBox.AppendText(formattedStartMessage);
-                    break;
-                case "End with DateTime":
-                    string formattedEndMessage = FormatterEnd($"{message} [{DateTime.Now}]{Environment.NewLine}");
-                    MessageRichTextBox.AppendText(formattedEndMessage);
-                    break;
-                case "Uppercase":
-                    string formattedUpperMessage = FormatterStart($"{message.ToUpper()}{Environment.NewLine}");
-                    MessageRichTextBox.AppendText(formattedUpperMessage);
-                    break;
-                case "Lowercase":
-                    string formattedLowerMessage = FormatterStart($"{message.ToLower()}{Environment.NewLine}");
-                    MessageRichTextBox.AppendText(formattedLowerMessage);
-                    break;
-            }
+            if (TextFormatter == null) { return; }
+
+            MessageRichTextBox.AppendText(TextFormatter(message));
         }
     }
 }
