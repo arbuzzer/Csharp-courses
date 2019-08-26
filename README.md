@@ -1,2 +1,1 @@
-# C# courses
-Repository for C# courses
+# Third Laboratory task
