@@ -1,5 +1,4 @@
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Simcorp.Laboratory.Third.Test")]
@@ -13,7 +12,7 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 
-[assembly: Guid("4ffdd378-107c-4733-8ac5-d1a449b6ea0d")]
+[assembly: Guid("4df22017-4714-4690-98db-2d194940427b")]
 
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

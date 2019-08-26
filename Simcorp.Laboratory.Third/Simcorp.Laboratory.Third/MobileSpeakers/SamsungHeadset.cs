@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Simcorp.Laboratory.Third.MobileSpeakers
-{
-    public class SamsungHeadset : IPlayback
-    {
-        private IOutput Output;
+﻿namespace Simcorp.Laboratory.Third.MobileSpeakers {
+    public class SamsungHeadset : IPlayback {
+        private readonly IOutput Output;
 
         public SamsungHeadset(IOutput output) {
             Output = output;

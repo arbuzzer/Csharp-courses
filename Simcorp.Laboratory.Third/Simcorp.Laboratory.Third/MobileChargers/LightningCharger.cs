@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Simcorp.Laboratory.Third.MobileChargers
-{
-    public class LightningCharger : ICharger
-    {
+﻿namespace Simcorp.Laboratory.Third.MobileChargers {
+    public class LightningCharger : ICharger {
         private IOutput Output;
 
         public LightningCharger(IOutput output) {

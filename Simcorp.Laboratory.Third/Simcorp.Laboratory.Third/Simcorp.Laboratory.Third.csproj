@@ -56,7 +56,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IOutput.cs" />
-    <Compile Include="Mobile.cs" />
+    <Compile Include="SimCorpMobile.cs" />
     <Compile Include="MobileChargers\ICharger.cs" />
     <Compile Include="MobileChargers\LightningCharger.cs" />
     <Compile Include="MobileChargers\MicroUsbCharger.cs" />
@@ -73,7 +73,6 @@
     <Compile Include="MobileSpeakers\UnofficialiPhoneHeadset.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimCorpMobile.cs" />
     <Compile Include="SMSProvider.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

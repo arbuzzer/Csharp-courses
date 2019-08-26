@@ -1,28 +1,27 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Simcorp.Laboratory.Third;
 using Simcorp.Laboratory.Third.MobileSpeakers;
 
-namespace Simcorp.Laboratory.Second.Test
-{
-    public class TestableOutput : IOutput
-    {
+namespace Simcorp.Laboratory.Third.Test {
+    public class TestableOutput : IOutput {
         public string WritenText { get; set; }
         public string WritenLineText { get; set; }
 
-        public void Write(string text) {
+        public void Write(string text)
+        {
             WritenText = text;
         }
 
-        public void WriteLine(string text) {
+        public void WriteLine(string text)
+        {
             WritenLineText = text;
         }
     }
 
     [TestClass]
-    public class CheckOutputValue
-    {
+    public class CheckOutputValue {
         [TestMethod]
-        public void CheckInputAndOutputiPhoneHeadsetValue() {
+        public void CheckInputAndOutputiPhoneHeadsetValue()
+        {
             var output = new TestableOutput();
             iPhoneHeadset iphoneHeadset = new iPhoneHeadset(output);
 
@@ -34,8 +33,10 @@ namespace Simcorp.Laboratory.Second.Test
 
             Assert.AreEqual(expectedValue, outputValue);
         }
+
         [TestMethod]
-        public void CheckInputAndOutputSamsungHeadsetValue() {
+        public void CheckInputAndOutputSamsungHeadsetValue()
+        {
             var output = new TestableOutput();
             SamsungHeadset samsungHeadset = new SamsungHeadset(output);
 
@@ -47,8 +48,10 @@ namespace Simcorp.Laboratory.Second.Test
 
             Assert.AreEqual(expectedValue, outputValue);
         }
+
         [TestMethod]
-        public void CheckInputAndOutputUnofficialHeadsetValue() {
+        public void CheckInputAndOutputUnofficialHeadsetValue()
+        {
             var output = new TestableOutput();
             UnofficialiPhoneHeadset unofficialiPhoneHeadset = new UnofficialiPhoneHeadset(output);
 
@@ -60,8 +63,10 @@ namespace Simcorp.Laboratory.Second.Test
 
             Assert.AreEqual(expectedValue, outputValue);
         }
+
         [TestMethod]
-        public void CheckInputAndOutputPhoneSpeakerValue() {
+        public void CheckInputAndOutputPhoneSpeakerValue()
+        {
             var output = new TestableOutput();
             PhoneSpeaker phoneSpeaker = new PhoneSpeaker(output);
 

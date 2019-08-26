@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Simcorp.Laboratory.Third.MobileSpeakers
-{
-    public class PhoneSpeaker : IPlayback
-    {
+﻿namespace Simcorp.Laboratory.Third.MobileSpeakers {
+    public class PhoneSpeaker : IPlayback {
         private IOutput Output;
 
         public PhoneSpeaker(IOutput output) {
