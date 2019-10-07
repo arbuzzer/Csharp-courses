@@ -115,14 +115,14 @@ namespace Simcorp.Laboratory {
             IEnumerable<ListViewItem> foundedItems = listOfFoundItems.Where(item => item.SubItems[2].Text.Contains(SearchTextBox.Text) ||
                                                                                     item.SubItems[3].Text.Contains(SearchTextBox.Text));
 
-            foreach (ListViewItem foundedItem in foundedItems) {
-                if(foundedItem != null) {
-                    foundedItem.ForeColor = Color.Red;
-                    indexSearch++;
-                    return;
-                }
-                MessageListView.Items.Clear();
-            }
+
+            foundedItems.ForeColor = Color.Red;
+
+
+            //foreach (ListViewItem foundedItem in foundedItems) {
+            //    foundedItems.ElementAtOrDefault(indexSearch).ForeColor = Color.Red;
+            //    indexSearch++;
+            //}
 
             //ListViewItem foundItem = MessageListView.FindItemWithText(SearchTextBox.Text, true, indexSearch, true);
             //if (foundItem != null) {
