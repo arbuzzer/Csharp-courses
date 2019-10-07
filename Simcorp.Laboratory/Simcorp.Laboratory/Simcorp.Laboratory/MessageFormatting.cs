@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading;
+using System.Linq;
 using System.Windows.Forms;
 using Simcorp.Laboratory.MobileFeatures;
 using Simcorp.Laboratory.Properties;
+using static System.Windows.Forms.ListView;
 
 namespace Simcorp.Laboratory {
     internal partial class MessageFormatting : Form {
@@ -12,7 +13,7 @@ namespace Simcorp.Laboratory {
         private Func<Message, string[]> TextFormatter;
         private delegate void DischargingDelegate(int value);
         private string UserFilterName;
-        private int indexSearch = 0;
+        private int indexSearch;
         static readonly object locker = new object();
         private bool MessagingEnabled;
 
@@ -76,7 +77,7 @@ namespace Simcorp.Laboratory {
             if (TextFormatter == null) { return; }
 
             if (InvokeRequired) {
-                Invoke(new SMSProvider.MessageStorageDelegate(OnMessageAdded), messages);
+                Invoke(new ThreadSMSProvider.MessageStorageDelegate(OnMessageAdded), messages);
                 return;
             }
 
@@ -104,17 +105,30 @@ namespace Simcorp.Laboratory {
                 return;
             }
 
-            ListViewItem foundItem = MessageListView.FindItemWithText(SearchTextBox.Text, true, indexSearch, true);
-            if (foundItem != null) {
-                foundItem.ForeColor = Color.Red;
-                indexSearch = foundItem.Index + 1;
-                if (indexSearch > MessageListView.Items.Count) {
-                    MessageBox.Show(Resources.ItemsNotFound);
-                }
-            } else {
-                MessageListView.Items.Clear();
-                indexSearch = 0;
+            if(indexSearch == MessageListView.Items.Count) {
+                MessageBox.Show(Resources.ItemsNotFound);
+                return;
             }
+
+            ListViewItemCollection listViewItems = MessageListView.Items;
+            IEnumerable<ListViewItem> listOfFoundItem = from ListViewItem foundItem in listViewItems
+                                                  where foundItem.Text == SearchTextBox.Text
+                                                  select foundItem;
+            foreach(ListViewItem foundItem in listViewItems) {
+                if(foundItem != null) {
+                    foundItem.ForeColor = Color.Red;
+                } else {
+                    MessageListView.Items.Clear();
+                }
+            }
+            //ListViewItem foundItem = MessageListView.FindItemWithText(SearchTextBox.Text, true, indexSearch, true);
+            //if (foundItem != null) {
+            //    foundItem.ForeColor = Color.Red;
+            //    indexSearch = foundItem.Index + 1;
+            //} else {
+            //    MessageListView.Items.Clear();
+            //    indexSearch = 0;
+            //}
         }
 
         private void FiltrationCheckBoxCheckedChanged(object sender, EventArgs e) {
@@ -135,6 +149,7 @@ namespace Simcorp.Laboratory {
         private void StartThreadClick(object sender, EventArgs e) {
             if (Disposing) { return; }
 
+            FiltrationCheckBox.Enabled = true;
             SwitchThread(true);
         }
 

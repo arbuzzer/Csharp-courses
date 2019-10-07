@@ -7,7 +7,7 @@ namespace Simcorp.Laboratory.Test {
     public class CheckFiltersAndMessageStorageTest {
         [TestMethod]
         public void VerifyingThatMessagesAreBeingAddedToStorageAndCleanStorage() {
-            var SMSProvider = new SMSProvider();
+            var SMSProvider = new ThreadSMSProvider();
             var storage = new MessageStorage(SMSProvider);
 
             Thread.Sleep(2500);
@@ -21,12 +21,6 @@ namespace Simcorp.Laboratory.Test {
             storage.ReadMessage();
             actual = storage.Messages.Count;
             Assert.AreEqual(0, actual);
-        }
-
-
-        [TestMethod]
-        public void VerifyingMessageFilters() {
-
         }
     }
 }

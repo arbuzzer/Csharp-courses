@@ -3,14 +3,9 @@ using System.Collections.Generic;
 using System.Threading;
 
 namespace Simcorp.Laboratory {
-    internal class SMSProvider {
+    public abstract class SMSProvider {
         public delegate void MessageStorageDelegate(List<Message> messages);
         public event MessageStorageDelegate MessageAdded;
-
-        public SMSProvider() {
-            StartMessageThread();
-        }
-
         internal readonly List<Message> Messages = new List<Message> {
             new Message("+380667243917",
                 "You have new message from Mother",
@@ -26,17 +21,12 @@ namespace Simcorp.Laboratory {
                 DateTime.Now)
         };
 
-        private void StartTimer() {
+        protected void StartTimer() {
             var autoEvent = new AutoResetEvent(false);
             var startMessage = new Timer(state => RaiseMessageAddedEvent(Messages), autoEvent, 0, 1500);
         }
 
-        private void StartMessageThread() {
-            var messageThread = new Thread(StartTimer);
-            messageThread.Start();
-        }
-
-        private void RaiseMessageAddedEvent(List<Message> messages) {
+        protected void RaiseMessageAddedEvent(List<Message> messages) {
             MessageAdded?.Invoke(messages);
         }
     }

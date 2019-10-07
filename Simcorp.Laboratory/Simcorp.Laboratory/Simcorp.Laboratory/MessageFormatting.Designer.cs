@@ -68,9 +68,10 @@
             // FiltrationCheckBox
             // 
             this.FiltrationCheckBox.AutoSize = true;
+            this.FiltrationCheckBox.Enabled = false;
             this.FiltrationCheckBox.Location = new System.Drawing.Point(230, 117);
             this.FiltrationCheckBox.Name = "FiltrationCheckBox";
-            this.FiltrationCheckBox.Size = new System.Drawing.Size(72, 17);
+            this.FiltrationCheckBox.Size = new System.Drawing.Size(75, 17);
             this.FiltrationCheckBox.TabIndex = 1;
             this.FiltrationCheckBox.Text = "Add filters";
             this.FiltrationCheckBox.UseVisualStyleBackColor = true;
@@ -244,6 +245,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FiltrationCheckBox);
             this.Controls.Add(this.MessageListView);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MessageFormatting";
             this.Text = "Message Formatting";
             this.FilterGroupBox.ResumeLayout(false);
