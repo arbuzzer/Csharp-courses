@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Simcorp.Laboratory.MobileFeatures;
 using Simcorp.Laboratory.Properties;
 using static System.Windows.Forms.ListView;
+using static System.Windows.Forms.ListViewItem;
 
 namespace Simcorp.Laboratory {
     internal partial class MessageFormatting : Form {
@@ -13,8 +14,7 @@ namespace Simcorp.Laboratory {
         private Func<Message, string[]> TextFormatter;
         private delegate void DischargingDelegate(int value);
         private string UserFilterName;
-        private int indexSearch;
-        static readonly object locker = new object();
+        private int indexSearch = 0;
         private bool MessagingEnabled;
 
         public MessageFormatting() {
@@ -23,8 +23,8 @@ namespace Simcorp.Laboratory {
             DateTimePickerTo.MaxDate = DateTime.Today;
             DateTimePickerFrom.MaxDate = DateTime.Today;
             SimCorpMobile = new SimCorpMobile(new MultiTouchScreen(), new LithiumIon(), new SingleModule(), new Stereo());
-            AttachHandlers();
             SimCorpMobile.Battery.BatteryState = ChargingProgressBar.Value;
+            AttachHandlers();
         }
 
         private int Value {
@@ -77,7 +77,7 @@ namespace Simcorp.Laboratory {
             if (TextFormatter == null) { return; }
 
             if (InvokeRequired) {
-                Invoke(new ThreadSMSProvider.MessageStorageDelegate(OnMessageAdded), messages);
+                Invoke(new SMSProvider.MessageStorageDelegate(OnMessageAdded), messages);
                 return;
             }
 
@@ -105,22 +105,25 @@ namespace Simcorp.Laboratory {
                 return;
             }
 
-            if(indexSearch == MessageListView.Items.Count) {
-                MessageBox.Show(Resources.ItemsNotFound);
-                return;
-            }
+            //if(indexSearch == MessageListView.Items.Count) {
+            //    MessageBox.Show(Resources.ItemsNotFound);
+            //    return;
+            //}
 
             ListViewItemCollection listViewItems = MessageListView.Items;
-            IEnumerable<ListViewItem> listOfFoundItem = from ListViewItem foundItem in listViewItems
-                                                  where foundItem.Text == SearchTextBox.Text
-                                                  select foundItem;
-            foreach(ListViewItem foundItem in listViewItems) {
-                if(foundItem != null) {
-                    foundItem.ForeColor = Color.Red;
-                } else {
-                    MessageListView.Items.Clear();
+            IEnumerable<ListViewItem> listOfFoundItems = listViewItems.Cast<ListViewItem>();
+            IEnumerable<ListViewItem> foundedItems = listOfFoundItems.Where(item => item.SubItems[2].Text.Contains(SearchTextBox.Text) ||
+                                                                                    item.SubItems[3].Text.Contains(SearchTextBox.Text));
+
+            foreach (ListViewItem foundedItem in foundedItems) {
+                if(foundedItem != null) {
+                    foundedItem.ForeColor = Color.Red;
+                    indexSearch++;
+                    return;
                 }
+                MessageListView.Items.Clear();
             }
+
             //ListViewItem foundItem = MessageListView.FindItemWithText(SearchTextBox.Text, true, indexSearch, true);
             //if (foundItem != null) {
             //    foundItem.ForeColor = Color.Red;

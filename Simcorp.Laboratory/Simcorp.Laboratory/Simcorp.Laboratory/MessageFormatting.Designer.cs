@@ -26,10 +26,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.MessageListView = new System.Windows.Forms.ListView();
-            this.firstMessageColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.secondMessageColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.thirdMessageColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.fourthMessageColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FiltrationCheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.MessageFormatLabel = new System.Windows.Forms.Label();
@@ -45,16 +41,20 @@
             this.ChargingProgressBar = new System.Windows.Forms.ProgressBar();
             this.StartCharging = new System.Windows.Forms.Button();
             this.StopCharging = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FilterGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // MessageListView
             // 
             this.MessageListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.firstMessageColumn,
-            this.secondMessageColumn,
-            this.thirdMessageColumn,
-            this.fourthMessageColumn});
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.MessageListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MessageListView.HideSelection = false;
             this.MessageListView.Location = new System.Drawing.Point(12, 338);
@@ -259,10 +259,6 @@
         #endregion
 
         private System.Windows.Forms.ListView MessageListView;
-        private System.Windows.Forms.ColumnHeader firstMessageColumn;
-        private System.Windows.Forms.ColumnHeader secondMessageColumn;
-        private System.Windows.Forms.ColumnHeader thirdMessageColumn;
-        private System.Windows.Forms.ColumnHeader fourthMessageColumn;
         private System.Windows.Forms.CheckBox FiltrationCheckBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label MessageFormatLabel;
@@ -278,6 +274,10 @@
         private System.Windows.Forms.ProgressBar ChargingProgressBar;
         private System.Windows.Forms.Button StartCharging;
         private System.Windows.Forms.Button StopCharging;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
 
