@@ -14,7 +14,6 @@ namespace Simcorp.Laboratory {
         private Func<Message, string[]> TextFormatter;
         private delegate void DischargingDelegate(int value);
         private string UserFilterName;
-        private int indexSearch = 0;
         private bool MessagingEnabled;
 
         public MessageFormatting() {
@@ -105,33 +104,16 @@ namespace Simcorp.Laboratory {
                 return;
             }
 
-            //if(indexSearch == MessageListView.Items.Count) {
-            //    MessageBox.Show(Resources.ItemsNotFound);
-            //    return;
-            //}
-
             ListViewItemCollection listViewItems = MessageListView.Items;
             IEnumerable<ListViewItem> listOfFoundItems = listViewItems.Cast<ListViewItem>();
-            IEnumerable<ListViewItem> foundedItems = listOfFoundItems.Where(item => item.SubItems[2].Text.Contains(SearchTextBox.Text) ||
+            IEnumerable<ListViewItem> foundedItems = listOfFoundItems.Where(item => item.SubItems[0].Text.Contains(SearchTextBox.Text) ||
+                                                                                    item.SubItems[1].Text.Contains(SearchTextBox.Text) ||
+                                                                                    item.SubItems[2].Text.Contains(SearchTextBox.Text) ||
                                                                                     item.SubItems[3].Text.Contains(SearchTextBox.Text));
 
-
-            foundedItems.ForeColor = Color.Red;
-
-
-            //foreach (ListViewItem foundedItem in foundedItems) {
-            //    foundedItems.ElementAtOrDefault(indexSearch).ForeColor = Color.Red;
-            //    indexSearch++;
-            //}
-
-            //ListViewItem foundItem = MessageListView.FindItemWithText(SearchTextBox.Text, true, indexSearch, true);
-            //if (foundItem != null) {
-            //    foundItem.ForeColor = Color.Red;
-            //    indexSearch = foundItem.Index + 1;
-            //} else {
-            //    MessageListView.Items.Clear();
-            //    indexSearch = 0;
-            //}
+            foreach (ListViewItem foundedItem in foundedItems) {
+                foundedItem.ForeColor = Color.Red;
+            }
         }
 
         private void FiltrationCheckBoxCheckedChanged(object sender, EventArgs e) {
