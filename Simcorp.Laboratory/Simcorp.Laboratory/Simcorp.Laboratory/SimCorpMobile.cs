@@ -28,7 +28,7 @@ namespace Simcorp.Laboratory {
         public Action<int> BatteryChargedDelegate { private get; set; }
 
         public SimCorpMobile(Screen screen, Battery battery, Camera camera, Speaker speaker) {
-            SMSProvider = new TaskSMSProvider();
+            SMSProvider = new ThreadSMSProvider();
 
             Screen = screen;
             Battery = battery;
